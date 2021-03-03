@@ -37,27 +37,55 @@
             <div class="header-top primary-bg">
                 <div class="container">
                     <div class="row">
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-12">
-                            <div class="header-contact-info d-flex">
-                                <div class="header-contact header-contact-phone">
-                                    <span class="ti-headphone"></span>
-                                    <p class="phone-number">+0123456789</p>
-                                </div>
-                                <div class="header-contact header-contact-email">
-                                    <span class="ti-email"></span>
-                                    <p class="email-name">support@gmail.com</p>
-                                </div>
-                            </div>
-                        </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                            <div class="header-social-icon-list">
+                            <div class="header-social-icon-list d-flex">
                                 <ul>
                                     <li><a href="#"><span class="ti-facebook"></span></a></li>
                                     <li><a href="#"><span class="ti-twitter-alt"></span></a></li>
                                     <li><a href="#"><span class="ti-dribbble"></span></a></li>
                                     <li><a href="#"><span class="ti-google"></span></a></li>
                                     <li><a href="#"><span class="ti-pinterest"></span></a></li>
-                                </ul>
+                                </ul>            
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-12">                                                               
+                            @if (Route::has('login'))
+                                <div class="header-social-icon-list d-flex f-right"> 
+                                    @auth
+                                        @if(Auth::user()->utype === 'ADM')
+                                            <a href="#" class="text-sm text-gray-700 underline">My Account({{Auth::user()->name}})</a>
+                                            <ul>
+                                                <li class="menu-item">
+                                                    <a href="{{route('admin.dashboard')}}" title="Dashboard">Dashboard</a>
+                                                </li>
+                                                <li class="mene-item">
+                                                        <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                                                    </li>
+                                                <form id="logout-form" action="{{route('logout')}}" method="POST">
+                                                    @csrf                                                    
+                                                </form>
+                                            </ul>
+                                        @else
+                                            <a href="#" class="text-sm text-gray-700 underline submenu">My Account({{Auth::user()->name}})</a>
+                                            <ul>
+                                                <li class="menu-item">
+                                                    <a href="{{route('user.dashboard')}}" title="Dashboard">Dashboard</a>
+                                                </li>
+                                                <li class="mene-item">
+                                                        <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                                                    </li>
+                                                <form id="logout-form" action="{{route('logout')}}" method="POST">
+                                                    @csrf                                                    
+                                                </form>
+                                            </ul>
+                                        @endif
+                                    @else
+                                        <ul>
+                                            <li><a href="{{ route('login') }}" title="Resister or login">Login</a></li>
+                                            <li><a href="{{ route('register') }}" title="Resister or login">Register</a></li>
+                                        </ul>                                                                                                                                                                                                                                                                                                                                 
+                                    @endauth    
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -94,7 +122,7 @@
                                 <nav id="mobile-menu" style="display: block;">
                                     <ul>
                                         <li>
-                                            <a href="#home">Home</a>                                
+                                            <a href="/">Home</a>                                
                                         </li>
                                         <li>
                                             <a href="#about">PAGES</a>
