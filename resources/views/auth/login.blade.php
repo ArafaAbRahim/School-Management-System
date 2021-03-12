@@ -1,4 +1,3 @@
-
 <x-guest-layout>
 <body>
     <div class="container">
