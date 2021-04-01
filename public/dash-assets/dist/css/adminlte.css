@@ -2560,6 +2560,19 @@ fieldset:disabled a.btn {
   pointer-events: none;
 }
 
+.btn-right{
+  color: #fff;  
+  background-color: #002147;
+  border-color: #002147;
+  box-shadow: none;
+}
+
+.btn-right:hover {
+  color: #002147;
+  background-color: #fdc800;
+  border-color: #fdc800;
+}
+
 .btn-primary {
   color: #fff;
   background-color: #007bff;
