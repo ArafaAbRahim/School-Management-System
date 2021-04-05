@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAddStudentsTable extends Migration
+class CreateStudentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,26 +13,28 @@ class CreateAddStudentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('add__students', function (Blueprint $table) {
+        Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->string('first_name'); 
             $table->string('last_name');  
             $table->string('father_name'); 
             $table->string('mother_name'); 
             $table->date('dob'); 
+            $table->integer('cls');
             $table->enum('version',['EV','BM']);  
-            $table->string('section');    
+            $table->bigInteger('section_id')->unsigned()->nullable();    
             $table->text('permanent_address');
             $table->text('present_address');
             $table->string('city');
             $table->string('state');
-            $table->decimal('zip'); 
+            $table->string('zip'); 
             $table->string('phone');
-            $table->string('emergency_phn');                     
-            $table->string('email')->unique();
+            $table->string('emergency_phn')->nullable();                     
+            $table->string('email')->unique()->nullable();
             $table->string('image')->nullable();
             $table->enum('gender',['male','female']);
             $table->timestamps();
+            $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
         });
     }
 
@@ -43,6 +45,6 @@ class CreateAddStudentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('add__students');
+        Schema::dropIfExists('students');
     }
 }

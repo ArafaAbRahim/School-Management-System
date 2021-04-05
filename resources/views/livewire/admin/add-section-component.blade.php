@@ -33,58 +33,59 @@
                                 </div>                               
                             </div>
                         </div>
-                    </div>
-                    <div class="panel-body well">
-                        @if(Session::has('message'))
-                            <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
-                        @endif
-                        <form class="form-horizontal" wire:submit.pervent="storesection">                            
-                            <div class="form-group">
-                                <label class="col-md-4 control-label">Class</label>
-                                <div class="col-md-4">
-                                    <select class="form-control" wire:model="class">
-                                        <option value="">Select</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option> 
-                                        <option value="11">11</option> 
-                                        <option value="12">12</option>                                                                                                                                            
-                                    </select>
-                                    @error('class') <p class="text-danger">{{$message}}</p> @enderror
+                    
+                        <div class="panel-body well">
+                            @if(Session::has('message'))
+                                <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                            @endif
+                            <form class="form-horizontal" wire:submit.pervent="storesection">                            
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Class</label>
+                                    <div class="col-md-4">
+                                        <select class="form-control" wire:model="class">
+                                            <option value="">Select</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option> 
+                                            <option value="11">11</option> 
+                                            <option value="12">12</option>                                                                                                                                            
+                                        </select>
+                                        @error('class') <p class="text-danger">{{$message}}</p> @enderror
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label">Version</label>
-                                <div class="col-md-4">
-                                    <select class="form-control" wire:model="version">
-                                        <option value="">Select</option>
-                                        <option value="EV">English Version</option>
-                                        <option value="BM">Bangla Medium</option>
-                                    </select>
-                                    @error('version') <p class="text-danger">{{$message}}</p> @enderror
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Version</label>
+                                    <div class="col-md-4">
+                                        <select class="form-control" wire:model="version">
+                                            <option value="">Select</option>
+                                            <option value="EV">English Version</option>
+                                            <option value="BM">Bangla Medium</option>
+                                        </select>
+                                        @error('version') <p class="text-danger">{{$message}}</p> @enderror
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                            <label class="col-md-4 control-label">Section</label>
-                            <div class="col-md-4">
-                                <input type="text" placeholder="Enter Section" class="form-control input-md" wire:model="sections" />
-                                @error('sections') <p class="text-danger">{{$message}}</p> @enderror
-                            </div>
-                        </div>                        
-                            <div class="form-group">
-                                <label class="col-md-4 control-label"></label>
+                                <div class="form-group">
+                                <label class="col-md-4 control-label">Section</label>
                                 <div class="col-md-4">
-                                    <button type="submit" class="btn btn-right">Submit</button>
+                                    <input type="text" placeholder="Enter Section" class="form-control input-md" wire:model="sections" />
+                                    @error('sections') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
-                            </div>
-                        </form>
+                            </div>                        
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label"></label>
+                                    <div class="col-md-4">
+                                        <button type="submit" class="btn btn-right">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
