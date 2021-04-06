@@ -125,7 +125,7 @@
                                 </a>
                             </li> 
                             <li class="nav-item">
-                                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                                <a href="{{route('admin.teacher')}}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Teachers List</p>
                                 </a>

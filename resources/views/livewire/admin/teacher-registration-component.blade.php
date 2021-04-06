@@ -19,7 +19,7 @@
             </div>
         </div> 
          <!-- Main Container -->
-        <div class="container"> 
+         <div class="container"> 
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="row">
@@ -27,16 +27,16 @@
                             <h4>Registration Form</h4> 
                         </div>
                         <div class="col-md-6">
-                            <a href="{{route('admin.section')}}" class="btn btn-right pull-right">All Section</a>                                    
+                            <a href="{{route('admin.teacher')}}" class="btn btn-right pull-right">All Teacher</a>                                    
                         </div>                               
                     </div>
                 </div>
                     
                 <div class="panel-body well">
-                    <div class="row">
-                        @if(Session::has('message'))
-                            <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
-                        @endif
+                    @if(Session::has('message'))
+                        <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                    @endif
+                    <div class="row">                      
                         <form wire:submit.pervent="addTeacher">
                             <div class="col-sm-12">
                                 <div class="row">
@@ -132,6 +132,7 @@
                                     <div class="col-sm-6 form-group">                                                                        
                                         <label>Gender</label>                                    
                                         <select id="Gender" class="form-control" wire:model="gender" >
+                                            <option>Select Gender</option>
                                             <option>Male</option>
                                             <option>Female</option>                                       
                                         </select> 

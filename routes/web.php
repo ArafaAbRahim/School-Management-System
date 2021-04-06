@@ -2,6 +2,7 @@
 
 use App\Http\Livewire\Admin\AddSectionComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
+use App\Http\Livewire\Admin\AdminTeacherComponent;
 use App\Http\Livewire\Admin\ClassComponent;
 use App\Http\Livewire\Admin\EditSectionComponent;
 use App\Http\Livewire\Admin\SectionComponent;
@@ -48,4 +49,5 @@ Route::middleware(['auth:sanctum','verified','authadmin'])->group(function(){
    Route::get('/admin/section',SectionComponent::class)->name('admin.section');
    Route::get('/admin/section/add',AddSectionComponent::class)->name('admin.addsection');
    Route::get('/admin/section/edit/{sections_id}',EditSectionComponent::class)->name('admin.editsection');
+   Route::get('/admin/teacher',AdminTeacherComponent::class)->name('admin.teacher');
 });
