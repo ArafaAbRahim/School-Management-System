@@ -7,7 +7,7 @@ use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-class TeacherRegistrationComponent extends Component
+class AdminAddTeacherComponent extends Component
 {
     use WithFileUploads;
     public $first_name; 
@@ -41,7 +41,7 @@ class TeacherRegistrationComponent extends Component
             'title' => 'required',
             'phone' => 'required|numeric',
             'emergency_phn' => 'numeric',
-            //'emailid' => 'required|unique:emailid',
+            'emailid' => 'required|email',
             'image' => 'required|mimes:jpeg,png',
             'gender' => 'required'
         ]);
@@ -62,7 +62,7 @@ class TeacherRegistrationComponent extends Component
             'title' => 'required',
             'phone' => 'required|numeric',
             'emergency_phn' => 'numeric',
-            //'emailid' => 'required|unique:emailid',
+            'emailid' => 'required|email',
             'image' => 'required|mimes:jpeg,png',
             'gender' => 'required'
         ]);       
@@ -90,6 +90,6 @@ class TeacherRegistrationComponent extends Component
 
     public function render()
     {
-        return view('livewire.admin.teacher-registration-component')->layout('layouts.admin');
+        return view('livewire.admin.admin-add-teacher-component')->layout('layouts.admin');
     }
 }

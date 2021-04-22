@@ -20,7 +20,7 @@ class CreateStudentsTable extends Migration
             $table->string('father_name'); 
             $table->string('mother_name'); 
             $table->date('dob'); 
-            $table->integer('cls');
+            $table->enum('class',['1','2','3','4','5','6','7','8','9','10','11','12']);
             $table->enum('version',['EV','BM']);  
             $table->bigInteger('section_id')->unsigned()->nullable();    
             $table->text('permanent_address');

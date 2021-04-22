@@ -28,7 +28,7 @@
                                     <h5>All Teacher</h5>
                                 </div>
                                 <div class="col-md-6">
-                                    <a href="{{route('admin.teacherregister')}}" class="btn float-right btn-right" style="margin-bottom: 5px;">Add New</a>
+                                    <a href="{{route('admin.addteacher')}}" class="btn float-right btn-right" style="margin-bottom: 5px;">Add New</a>
                                 </div>
                             </div>
                         </div>
