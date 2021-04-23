@@ -239,7 +239,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{route('admin.addbook')}}" class="nav-link">
+                                <a href="{{route('admin.books')}}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Book List</p>
                                 </a>

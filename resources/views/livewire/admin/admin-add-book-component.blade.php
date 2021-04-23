@@ -6,13 +6,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">All Sections</h1>
+                        <h1 class="m-0">Add Book</h1>
                     </div>
                     
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Class</a></li>
-                            <li class="breadcrumb-item active">Sections</li>
+                            <li class="breadcrumb-item"><a href="#">Library</a></li>
+                            <li class="breadcrumb-item active">Book List</li>
                         </ol>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                                    <h5>Add New Section</h5> 
                                 </div>
                                 <div class="col-md-6">
-                                    <a href="" class="btn btn-right pull-right">All Book</a>                                    
+                                    <a href="{{route('admin.books')}}" class="btn btn-right pull-right">All Book</a>                                    
                                 </div>                               
                             </div>
                         </div>
