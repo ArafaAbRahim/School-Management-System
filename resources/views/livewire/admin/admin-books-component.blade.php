@@ -50,7 +50,23 @@
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                   
+                                    <tbody>
+                                        @foreach ($books as $book)
+                                            <tr>
+                                                <td>{{$book->id}}</td>
+                                                <td>{{$book->book_name}}</td>
+                                                <td>{{$book->slug}}</td>
+                                                <td>{{$book->writer_name}}</td> 
+                                                <td>{{$book->class}}</td>
+                                                <td>{{$book->quantity}}</td>
+                                                <td>{{$book->stock_status}}</td>                                                                            
+                                                <td>
+                                                    <a href="#"><i class="fa fa-edit fa-2x"></i></a>
+                                                    <a href="#" onclick="confirm('Are you sure, You want to delete this book?') || event.stopImmediatePropagation()" wire:click.prevent="deleteBook({{$book->id}})" style="margin-left: 5px;"><i class="fa fa-times fa-2x text-danger"></i></a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
                                 </table>                        
                             </div>
                         </div>
