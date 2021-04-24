@@ -1,5 +1,5 @@
 <div class="wrapper">
-    
+    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <div class="content-header">
@@ -31,126 +31,124 @@
                         </div>                               
                     </div>
                 </div>
-
-                <div class="panel-body ">
+                    
+                <div class="panel-body">
                     @if(Session::has('message'))
                         <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
-                    @endif  
-                                                   
-                    <form wire:submit.pervent="addStudents">
+                    @endif
+                                         
+                    <form wire:submit.pervent="addStudent">
                         <div class="col-sm-12">
                             <div class="row">
                                 <div class="col-sm-6 form-group">
                                     <label>First Name</label>
-                                    <input type="text" placeholder="Enter First Name Here.." class="form-control" wire:model="first_name" />
-                                    @error('first_name') <p class="text-danger">{{$message}}</p> @enderror
+                                    <input type="text" placeholder="Enter First Name Here.." class="form-control" wire:model="fname" />
+                                    
                                 </div>
                                 <div class="col-sm-6 form-group">
                                     <label>Last Name</label>
-                                    <input type="text" placeholder="Enter Last Name Here.." class="form-control" wire:model="last_name" />
-                                    @error('last_name') <p class="text-danger">{{$message}}</p> @enderror
+                                    <input type="text" placeholder="Enter Last Name Here.." class="form-control" wire:model="lname" />
+                                    
                                 </div>
-                            </div>
-                            
+                            </div>	
+
                             <div class="row">
                                 <div class="col-sm-6 form-group">
                                     <label>Father Name</label>
-                                    <input type="text" placeholder="Enter Father Name Here.." class="form-control" wire:model="father_name" />
-                                    @error('father_name') <p class="text-danger">{{$message}}</p> @enderror  
+                                    <input type="text" placeholder="Enter First Name Here.." class="form-control" wire:model="father_name" />
+                                    
                                 </div>
                                 <div class="col-sm-6 form-group">
                                     <label>Mother Name</label>
-                                    <input type="text" placeholder="Enter Mother Name Here.." class="form-control" wire:model="mother_name" />
-                                    @error('mother_name') <p class="text-danger">{{$message}}</p> @enderror  
+                                    <input type="text" placeholder="Enter Last Name Here.." class="form-control" wire:model="mother_name" />
+                                    
                                 </div>
                             </div>	
                             
-                            <div class="form-group">
-                                <label>Date of Birth</label>                                    
+                            <div class="form-group">                                
+                                <label>Date of Birth</label>
                                 <input type="date" id="birthDate" class="form-control" wire:model="dob" />
-                                @error('dob') <p class="text-danger">{{$message}}</p> @enderror  
+                                	                               	
                             </div>
 
-                            <div class="row">                               	
+                            <div class="row">
                                 <div class="col-sm-4 form-group">
-                                    <label>Class</label>                                    
-                                    <select id="country" class="form-control" wire:model="class" >
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                        <option>7</option>
-                                        <option>8</option>
-                                        <option>9</option>
-                                        <option>10</option>
-                                        <option>11</option>
-                                        <option>12</option>
-                                    </select>   
-                                    @error('class') <p class="text-danger">{{$message}}</p> @enderror                                   
+                                    <label>Class</label>
+                                    <select class="form-control" wire:model="class">
+                                        <option value="">Select</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option> 
+                                        <option value="11">11</option> 
+                                        <option value="12">12</option>                                                                                                                                            
+                                    </select>
                                 </div>	
                                 <div class="col-sm-4 form-group">
-                                    <label>Version</label>                                    
-                                    <select  class="form-control" wire:model="version" >
-                                        <option>Select Version</option>
-                                        <option>English version</option>
-                                        <option>Bangla Medium</option>                                       
-                                    </select>    
-                                    @error('version') <p class="text-danger">{{$message}}</p> @enderror                                  
+                                    <label>Version</label>
+                                    <select id="Version" class="form-control" wire:model="version" >
+                                        <option>Select Gender</option>
+                                        <option value="EV">English Version</option>
+                                        <option value="BM">Bangla Medium</option>                                       
+                                    </select> 
                                 </div>	
                                 <div class="col-sm-4 form-group">
                                     <label>Section</label>
                                     <select class="form-control" wire:model="section_id">
-                                        <option value="">Select section</option>
-                                        @foreach ($sections as $sections)
-                                            <option value="{{$sections->id}}">{{$sections->sections}}</option>
+                                        <option value="">Select Category</option>
+                                        @foreach ($sections as $section)
+                                            <option value="{{$section->id}}">{{$section->sections}}</option>
                                         @endforeach
-                                    </select>
+                                   </select>
                                 </div>		
-                                @error('section_id') <p class="text-danger">{{$message}}</p> @enderror   
                             </div>
 
                             <div class="form-group">
                                 <label>Permanent Address</label>
-                                <textarea placeholder="Enter Permanent Address Here.." rows="3" class="form-control" wire:model="permanent_address" ></textarea>
-                                @error('permanent_address') <p class="text-danger">{{$message}}</p> @enderror
+                                <textarea placeholder="Enter Permanent Address Here.." rows="3" class="form-control" wire:model="address1" ></textarea>
+                               
                             </div>
                             
                             <div class="form-group">
                                 <label>Present Address</label>
-                                <textarea placeholder="Enter Present Address Here.." rows="3" class="form-control" wire:model="present_address" ></textarea>
-                                @error('present_address') <p class="text-danger">{{$message}}</p> @enderror
+                                <textarea placeholder="Enter Present Address Here.." rows="3" class="form-control" wire:model="address2" ></textarea>
+                                @error('') <p class="text-danger">{{$message}}</p> @enderror
                             </div>
 
                             <div class="row">
                                 <div class="col-sm-4 form-group">
                                     <label>City</label>
                                     <input type="text" placeholder="Enter City Name Here.." class="form-control" wire:model="city" />
-                                    @error('city') <p class="text-danger">{{$message}}</p> @enderror
+                                    @error('') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>	
                                 <div class="col-sm-4 form-group">
                                     <label>State</label>
                                     <input type="text" placeholder="Enter State Name Here.." class="form-control" wire:model="state" />
-                                    @error('state') <p class="text-danger">{{$message}}</p> @enderror
+                                    @error('') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>	
                                 <div class="col-sm-4 form-group">
-                                    <label>Zip</label>
+                                    <label>Zip Code</label>
                                     <input type="text" placeholder="Enter Zip Code Here.." class="form-control" wire:model="zip" />
-                                    @error('zip') <p class="text-danger">{{$message}}</p> @enderror
+                                    @error('') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>		
-                            </div>                          
+                            </div>                         	
                             
                             <div class="row">
                                 <div class="col-sm-6 form-group">
                                     <label>Phone Number</label>
                                     <input type="text" placeholder="Enter Phone Number Here.." class="form-control" wire:model="phone" />
-                                    @error('phone') <p class="text-danger">{{$message}}</p> @enderror
+                                    @error('') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>		
                                 <div class="col-sm-6 form-group">
                                     <label>Emergancy Number</label>
                                     <input type="text" placeholder="Enter Emergancy Number Here.." class="form-control" wire:model="emergency_phn" />
-                                    @error('emergency_phn') <p class="text-danger">{{$message}}</p> @enderror
+                                    @error('') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>	
                             </div>
                                 
@@ -165,28 +163,26 @@
                                     <input type="file"  class="form-control" wire:model="image" />
                                     @if($image)
                                         <img src="{{$image->temporaryUrl()}}" width="120" />
-                                    @endif
-                                    @error('image') <p class="text-danger">{{$message}}</p> @enderror                                        
+                                    @endif                                    
                                 </div>		
                                 
                                 <div class="col-sm-6 form-group">                                                                        
                                     <label>Gender</label>                                    
                                     <select id="Gender" class="form-control" wire:model="gender" >
                                         <option>Select Gender</option>
-                                        <option>Male</option>
-                                        <option>Female</option>                                       
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>                                       
                                     </select> 
-                                    @error('gender') <p class="text-danger">{{$message}}</p> @enderror                                                                                                       
+                                                                                                                                          
                                 </div>	
                             </div>
                             
-                            <button style="margin-bottom: 20px;" type="submit" class="btn btn-right">Submit</button>				
+                            <button type="submit" class="btn btn-right">Submit</button>				
                         </div>
-                    </form>  
+                    </form> 
                     
                 </div>
             </div>
-            
         </div>
     </div>
 </div>

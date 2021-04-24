@@ -15,26 +15,25 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name'); 
-            $table->string('last_name');  
-            $table->string('father_name'); 
-            $table->string('mother_name'); 
-            $table->date('dob'); 
+            $table->string('fname');
+            $table->string('lname');
+            $table->string('father_name');
+            $table->string('mother_name');
+            $table->date('dob');
             $table->enum('class',['1','2','3','4','5','6','7','8','9','10','11','12']);
-            $table->enum('version',['EV','BM']);  
-            $table->bigInteger('section_id')->unsigned()->nullable();    
-            $table->text('permanent_address');
-            $table->text('present_address');
+            $table->enum('version',['EV','BM']);
+            $table->bigInteger('section_id')->unsigned()->nullable();
+            $table->text('address1');
+            $table->text('address2')->nullable();
             $table->string('city');
             $table->string('state');
-            $table->string('zip'); 
+            $table->string('zip');
             $table->string('phone');
             $table->string('emergency_phn')->nullable();                     
-            $table->string('email')->unique()->nullable();
-            $table->string('image')->nullable();
+            $table->string('email')->unique();
+            $table->text('image')->nullable();
             $table->enum('gender',['male','female']);
             $table->timestamps();
-            $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
         });
     }
 

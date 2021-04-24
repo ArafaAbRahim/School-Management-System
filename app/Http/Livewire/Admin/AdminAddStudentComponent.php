@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\Sections;
 use App\Models\Student;
-use App\Models\Teacher;
 use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -12,95 +11,50 @@ use Livewire\WithFileUploads;
 class AdminAddStudentComponent extends Component
 {
     use WithFileUploads;
-    public $first_name; 
-    public $last_name;
+    public $fname;
+    public $lname;
     public $father_name;
     public $mother_name;
-    public $dob; 
-    public $class;   
+    public $dob;
+    public $class;
     public $version;
-    public $section_id;       
-    public $permanent_address;
-    public $present_address;
+    public $section_id;
+    public $address1;
+    public $address2;
     public $city;
     public $state;
-    public $zip;     
+    public $zip;
     public $phone;
-    public $emergency_phn;                     
+    public $emergency_phn;
     public $email;
     public $image;
     public $gender;
 
-    public function updated($fields)
+    public function addStudent()
     {
-        $this->validateOnly($fields,[             
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'father_name' => 'required',
-            'mother_name' => 'required',
-            'dob' => 'required',
-            'class' => 'required',
-            'version' => 'required',
-            'section_id' => 'required',
-            'permanent_address' => 'required',
-            'present_address' => 'required',
-            'city' => 'required',
-            'state' => 'required',
-            'zip' => 'required',            
-            'phone' => 'required|numeric',
-            'emergency_phn' => 'numeric',
-            'email' => 'email',
-            'image' => 'required|mimes:jpeg,png',
-            'gender' => 'required'
-        ]);
-    }
-
-    public function addStudents()
-    {
-        $this->validate([
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'father_name' => 'required',
-            'mother_name' => 'required',
-            'dob' => 'required',
-            'class' => 'required',
-            'version' => 'required',
-            'section_id' => 'required',
-            'permanent_address' => 'required',
-            'present_address' => 'required',
-            'city' => 'required',
-            'state' => 'required',
-            'zip' => 'required',            
-            'phone' => 'required|numeric',
-            'emergency_phn' => 'numeric',
-            'email' => 'email',
-            'image' => 'required|mimes:jpeg,png',
-            'gender' => 'required'
-        ]);  
-
-        $student = new Teacher();
-        $student->first_name = $this->first_name;
-        $student->last_name = $this->last_name;
+        $student = new Student();
+        $student->fname = $this->fname;
+        $student->lname = $this->lname;
         $student->father_name = $this->father_name;
         $student->mother_name = $this->mother_name;
-        $student->dob = $this->dob; 
+        $student->dob = $this->dob;
         $student->class = $this->class;
         $student->version = $this->version;
         $student->section_id = $this->section_id;
-        $student->permanent_address = $this->permanent_address;
-        $student->present_address = $this->present_address;
+        $student->address1 = $this->address1;
+        $student->address2 = $this->address2;
         $student->city = $this->city;
         $student->state = $this->state;
-        $student->zip = $this->zip;        
+        $student->zip = $this->zip;
         $student->phone = $this->phone;
         $student->emergency_phn = $this->emergency_phn;
         $student->email = $this->email;
         $imageName = Carbon::now()->timestamp. '.' . $this->image->extension();
-        $this->image->storeAs('students',$imageName);
+        $this->image->storeAs('teachers',$imageName);
         $student->image = $imageName;
-        $student->gender = $this->gender;       
+        $student->gender = $this->gender;
         $student->save();
-        session()->flash('message','Student has been added successfully!');
+        session()->flash('message','Student has been created successfully!');
     }
 
     public function render()
