@@ -27,7 +27,7 @@
                             <h4>Registration Form</h4> 
                         </div>
                         <div class="col-md-6">
-                            <a href="{{route('admin.teacher')}}" class="btn btn-right pull-right">All Student</a>                                    
+                            <a href="{{route('admin.student')}}" class="btn btn-right pull-right">All Student</a>                                    
                         </div>                               
                     </div>
                 </div>

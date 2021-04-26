@@ -147,15 +147,9 @@
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Add Student</p>
                                 </a>
-                            </li>
+                            </li>                         
                             <li class="nav-item">
-                                <a href="" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Class-wise Students</p>
-                                </a>
-                            </li> 
-                            <li class="nav-item">
-                                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                                <a href="{{route('admin.student')}}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Students List</p>
                                 </a>

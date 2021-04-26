@@ -50,7 +50,7 @@ class AdminAddStudentComponent extends Component
         $student->emergency_phn = $this->emergency_phn;
         $student->email = $this->email;
         $imageName = Carbon::now()->timestamp. '.' . $this->image->extension();
-        $this->image->storeAs('teachers',$imageName);
+        $this->image->storeAs('students',$imageName);
         $student->image = $imageName;
         $student->gender = $this->gender;
         $student->save();

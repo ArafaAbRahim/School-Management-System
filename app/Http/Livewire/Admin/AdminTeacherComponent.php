@@ -14,7 +14,7 @@ class AdminTeacherComponent extends Component
     {
         $teacher = Teacher::find($id);
         $teacher->delete();
-        session()->flash('message','Class has been deleted successfully!');
+        session()->flash('message','teacher has been deleted successfully!');
     }
 
     public function render()
