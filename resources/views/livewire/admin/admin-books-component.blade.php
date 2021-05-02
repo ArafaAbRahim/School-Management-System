@@ -46,7 +46,7 @@
                                             <th>Writer name</th>                                    
                                             <th>Class</th>
                                             <th>Quantity</th>
-                                            <th>Stock</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -67,7 +67,8 @@
                                             </tr>
                                         @endforeach
                                     </tbody>
-                                </table>                        
+                                </table> 
+                                {{$books->links()}}                       
                             </div>
                         </div>
                     </div>

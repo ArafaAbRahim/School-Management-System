@@ -4,9 +4,12 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\Book;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class AdminBooksComponent extends Component
 {
+    use WithPagination;
+
     public function deleteBook($book_id)
     {
         $section = Book::find($book_id);
@@ -16,7 +19,7 @@ class AdminBooksComponent extends Component
 
     public function render()
     {
-        $books = Book::all();
+        $books = Book::paginate(1);
         return view('livewire.admin.admin-books-component',['books'=>$books])->layout('layouts.admin');
     }
 }

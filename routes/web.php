@@ -1,16 +1,17 @@
 <?php
 
-use App\Http\Livewire\Admin\AddSectionComponent;
 use App\Http\Livewire\Admin\AdminAddBookComponent;
+use App\Http\Livewire\Admin\AdminAddSectionComponent;
 use App\Http\Livewire\Admin\AdminAddStudentComponent;
 use App\Http\Livewire\Admin\AdminAddTeacherComponent;
 use App\Http\Livewire\Admin\AdminBooksComponent;
+use App\Http\Livewire\Admin\AdminClassComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
+use App\Http\Livewire\Admin\AdminEditSectionComponent;
+use App\Http\Livewire\Admin\AdminEditTeacherComponent;
+use App\Http\Livewire\Admin\AdminSectionComponent;
 use App\Http\Livewire\Admin\AdminStudentComponent;
 use App\Http\Livewire\Admin\AdminTeacherComponent;
-use App\Http\Livewire\Admin\ClassComponent;
-use App\Http\Livewire\Admin\EditSectionComponent;
-use App\Http\Livewire\Admin\SectionComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use Illuminate\Support\Facades\Route;
@@ -45,14 +46,16 @@ Route::middleware(['auth:sanctum','verified'])->group(function(){
 
 //for Admin
 Route::middleware(['auth:sanctum','verified','authadmin'])->group(function(){
-   Route::get('/admin/dashboard',AdminDashboardComponent::class)->name('admin.dashboard');       
-   Route::get('/admin/class',ClassComponent::class)->name('admin.class');
-   Route::get('/admin/section',SectionComponent::class)->name('admin.section');
-   Route::get('/admin/section/add',AddSectionComponent::class)->name('admin.addsection');
-   Route::get('/admin/section/edit/{sections_id}',EditSectionComponent::class)->name('admin.editsection');
+   Route::get('/admin/dashboard',AdminDashboardComponent::class)->name('admin.dashboard');   
+
+   Route::get('/admin/class',AdminClassComponent::class)->name('admin.class');
+   Route::get('/admin/section',AdminSectionComponent::class)->name('admin.section');
+   Route::get('/admin/section/add',AdminAddSectionComponent::class)->name('admin.addsection');
+   Route::get('/admin/section/edit/{sections_id}',AdminEditSectionComponent::class)->name('admin.editsection');
 
    Route::get('/admin/teacher/add',AdminAddTeacherComponent::class)->name('admin.addteacher');
    Route::get('/admin/teacher',AdminTeacherComponent::class)->name('admin.teacher');  
+   Route::get('/admin/teacher/edit/{teacher_id}',AdminEditTeacherComponent::class)->name('admin.editteacher');
    
    Route::get('/admin/student/add',AdminAddStudentComponent::class)->name('admin.addstudent');
    Route::get('admin/student',AdminStudentComponent::class)->name('admin.student');

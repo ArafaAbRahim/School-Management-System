@@ -43,12 +43,12 @@
                                 <div class="col-sm-6 form-group">
                                     <label>First Name</label>
                                     <input type="text" placeholder="Enter First Name Here.." class="form-control" wire:model="fname" />
-                                    
+                                    @error('fname') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                                 <div class="col-sm-6 form-group">
                                     <label>Last Name</label>
                                     <input type="text" placeholder="Enter Last Name Here.." class="form-control" wire:model="lname" />
-                                    
+                                    @error('lname') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>	
 
@@ -56,19 +56,19 @@
                                 <div class="col-sm-6 form-group">
                                     <label>Father Name</label>
                                     <input type="text" placeholder="Enter First Name Here.." class="form-control" wire:model="father_name" />
-                                    
+                                    @error('father_name') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                                 <div class="col-sm-6 form-group">
                                     <label>Mother Name</label>
                                     <input type="text" placeholder="Enter Last Name Here.." class="form-control" wire:model="mother_name" />
-                                    
+                                    @error('mother_name') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>
                             </div>	
                             
                             <div class="form-group">                                
                                 <label>Date of Birth</label>
                                 <input type="date" id="birthDate" class="form-control" wire:model="dob" />
-                                	                               	
+                                @error('dob') <p class="text-danger">{{$message}}</p> @enderror	                               	
                             </div>
 
                             <div class="row">
@@ -89,6 +89,7 @@
                                         <option value="11">11</option> 
                                         <option value="12">12</option>                                                                                                                                            
                                     </select>
+                                    @error('class') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>	
                                 <div class="col-sm-4 form-group">
                                     <label>Version</label>
@@ -97,6 +98,7 @@
                                         <option value="EV">English Version</option>
                                         <option value="BM">Bangla Medium</option>                                       
                                     </select> 
+                                    @error('version') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>	
                                 <div class="col-sm-4 form-group">
                                     <label>Section</label>
@@ -106,36 +108,37 @@
                                             <option value="{{$section->id}}">{{$section->sections}}</option>
                                         @endforeach
                                    </select>
+                                   @error('section_id') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>		
                             </div>
 
                             <div class="form-group">
                                 <label>Permanent Address</label>
                                 <textarea placeholder="Enter Permanent Address Here.." rows="3" class="form-control" wire:model="address1" ></textarea>
-                               
+                                @error('address1') <p class="text-danger">{{$message}}</p> @enderror
                             </div>
                             
                             <div class="form-group">
                                 <label>Present Address</label>
                                 <textarea placeholder="Enter Present Address Here.." rows="3" class="form-control" wire:model="address2" ></textarea>
-                                @error('') <p class="text-danger">{{$message}}</p> @enderror
+                                @error('address2') <p class="text-danger">{{$message}}</p> @enderror
                             </div>
 
                             <div class="row">
                                 <div class="col-sm-4 form-group">
                                     <label>City</label>
                                     <input type="text" placeholder="Enter City Name Here.." class="form-control" wire:model="city" />
-                                    @error('') <p class="text-danger">{{$message}}</p> @enderror
+                                    @error('city') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>	
                                 <div class="col-sm-4 form-group">
                                     <label>State</label>
                                     <input type="text" placeholder="Enter State Name Here.." class="form-control" wire:model="state" />
-                                    @error('') <p class="text-danger">{{$message}}</p> @enderror
+                                    @error('state') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>	
                                 <div class="col-sm-4 form-group">
                                     <label>Zip Code</label>
                                     <input type="text" placeholder="Enter Zip Code Here.." class="form-control" wire:model="zip" />
-                                    @error('') <p class="text-danger">{{$message}}</p> @enderror
+                                    @error('zip') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>		
                             </div>                         	
                             
@@ -143,12 +146,12 @@
                                 <div class="col-sm-6 form-group">
                                     <label>Phone Number</label>
                                     <input type="text" placeholder="Enter Phone Number Here.." class="form-control" wire:model="phone" />
-                                    @error('') <p class="text-danger">{{$message}}</p> @enderror
+                                    @error('phone') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>		
                                 <div class="col-sm-6 form-group">
                                     <label>Emergancy Number</label>
                                     <input type="text" placeholder="Enter Emergancy Number Here.." class="form-control" wire:model="emergency_phn" />
-                                    @error('') <p class="text-danger">{{$message}}</p> @enderror
+                                    @error('emergency_phn') <p class="text-danger">{{$message}}</p> @enderror
                                 </div>	
                             </div>
                                 
@@ -165,7 +168,7 @@
                                         <img src="{{$image->temporaryUrl()}}" width="120" />
                                     @endif                                    
                                 </div>		
-                                
+                                @error('image') <p class="text-danger">{{$message}}</p> @enderror
                                 <div class="col-sm-6 form-group">                                                                        
                                     <label>Gender</label>                                    
                                     <select id="Gender" class="form-control" wire:model="gender" >
@@ -173,7 +176,7 @@
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>                                       
                                     </select> 
-                                                                                                                                          
+                                    @error('gender') <p class="text-danger">{{$message}}</p> @enderror                                                                                                      
                                 </div>	
                             </div>
                             

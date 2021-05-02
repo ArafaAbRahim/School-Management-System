@@ -30,8 +30,50 @@ class AdminAddStudentComponent extends Component
     public $image;
     public $gender;
 
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[             
+            'fname' => 'required',
+            'lname' => 'required',
+            'father_name' => 'required',
+            'mother_name' => 'required',
+            'dob' => 'required',
+            'class' => 'required',
+            'version' => 'required',
+            'section_id' => 'required',
+            'address1' => 'required',
+            'address2' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'zip' => 'required|numeric',            
+            'phone' => 'required|numeric',
+            'emergency_phn' => 'numeric',            
+            'image' => 'required|mimes:jpeg,png',
+            'gender' => 'required'
+        ]);
+    }
+
     public function addStudent()
     {
+        $this->validate([
+            'fname' => 'required',
+            'lname' => 'required',
+            'father_name' => 'required',
+            'mother_name' => 'required',
+            'dob' => 'required',
+            'class' => 'required',
+            'version' => 'required',
+            'section_id' => 'required',
+            'address1' => 'required',
+            'address2' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'zip' => 'required|numeric',            
+            'phone' => 'required|numeric',
+            'emergency_phn' => 'numeric',            
+            'image' => 'required|mimes:jpeg,png',
+            'gender' => 'required'
+        ]);       
         $student = new Student();
         $student->fname = $this->fname;
         $student->lname = $this->lname;

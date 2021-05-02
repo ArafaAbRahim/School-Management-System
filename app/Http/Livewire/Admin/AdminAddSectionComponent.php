@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Admin;
 use App\Models\Sections;
 use Livewire\Component;
 
-class AddSectionComponent extends Component
+class AdminAddSectionComponent extends Component
 {
     public $class;
     public $version;
@@ -37,6 +37,6 @@ class AddSectionComponent extends Component
     public function render()
     {
 
-        return view('livewire.admin.add-section-component')->layout('layouts.admin');
+        return view('livewire.admin.admin-add-section-component')->layout('layouts.admin');
     }
 }
