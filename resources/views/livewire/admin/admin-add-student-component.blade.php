@@ -103,7 +103,7 @@
                                 <div class="col-sm-4 form-group">
                                     <label>Section</label>
                                     <select class="form-control" wire:model="section_id">
-                                        <option value="">Select Category</option>
+                                        <option value="">Select Section</option>
                                         @foreach ($sections as $section)
                                             <option value="{{$section->id}}">{{$section->sections}}</option>
                                         @endforeach

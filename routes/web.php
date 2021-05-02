@@ -8,6 +8,7 @@ use App\Http\Livewire\Admin\AdminBooksComponent;
 use App\Http\Livewire\Admin\AdminClassComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Admin\AdminEditSectionComponent;
+use App\Http\Livewire\Admin\AdminEditStudentComponent;
 use App\Http\Livewire\Admin\AdminEditTeacherComponent;
 use App\Http\Livewire\Admin\AdminSectionComponent;
 use App\Http\Livewire\Admin\AdminStudentComponent;
@@ -59,6 +60,7 @@ Route::middleware(['auth:sanctum','verified','authadmin'])->group(function(){
    
    Route::get('/admin/student/add',AdminAddStudentComponent::class)->name('admin.addstudent');
    Route::get('admin/student',AdminStudentComponent::class)->name('admin.student');
+   Route::get('/admin/student/edit/{student_id}',AdminEditStudentComponent::class)->name('admin.editstudent');
 
    Route::get('/admin/book/add',AdminAddBookComponent::class)->name('admin.addbook');
    Route::get('/admin/books',AdminBooksComponent::class)->name('admin.books');

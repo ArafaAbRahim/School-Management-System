@@ -47,7 +47,7 @@ class AdminEditTeacherComponent extends Component
         $this->image = $teacher->image;
         $this->newimage = $teacher->newimage;
         $this->gender = $teacher->gender;
-        $this->teachers_id = $teacher->id;
+        $this->teacher_id = $teacher->id;
     }
 
     public function updated($fields)
@@ -65,8 +65,7 @@ class AdminEditTeacherComponent extends Component
             'title' => 'required',
             'phone' => 'required|numeric',
             'emergency_phn' => 'numeric',
-            'emailid' => 'required|email',
-            'newimage' => 'required|mimes:jpeg,png',
+            'emailid' => 'required|email',          
             'gender' => 'required'
         ]);
     }
@@ -86,8 +85,7 @@ class AdminEditTeacherComponent extends Component
             'title' => 'required',
             'phone' => 'required|numeric',
             'emergency_phn' => 'numeric',
-            'emailid' => 'required|email',
-            'newimage' => 'required|mimes:jpeg,png',
+            'emailid' => 'required|email',          
             'gender' => 'required'
         ]);       
         $teacher = Teacher::find($this->teacher_id);

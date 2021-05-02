@@ -90,7 +90,7 @@
                                             <td>{{$student->dob}}</td>                                     
                                         @endif                                                                                                                           
                                         <td>
-                                            <a href="#"><i class="fa fa-edit "></i></a>
+                                            <a href="{{route('admin.editstudent',['student_id'=>$student->id])}}"><i class="fa fa-edit "></i></a>
                                             <a href="#" onclick="confirm('Are you sure, You want to delete this student?') || event.stopImmediatePropagation()" wire:click.prevent="deleteStudent({{$student->id}})" ><i class="fa fa-times fa-x text-danger"></i></a>
                                         </td>
                                     </tr>
